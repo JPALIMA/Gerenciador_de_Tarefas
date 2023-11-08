@@ -1,0 +1,28 @@
+<h1>Nova Tarefa</h1>
+
+<%= form_for @task do |f| %>
+     <div class="field">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+     </div>
+
+     <div class="field">
+          <%= f.label :assignee %>
+          <%= f.text_field :assignee %>
+     </div>
+
+     <div class="field">
+          <%= f.label :due_date %>
+          <%= f.date_field :due_date %>
+     </div>
+
+     <div class="field">
+          <%= f.label :priority %>
+          <%= f.text_field :priority %>
+     </div>
+
+     <div class="actions">
+          <%= f.submit "Criar Tarefa" %>
+     </div>
+<% end %>
+<%= link_to "Voltar para a lista de tarefas", tasks_path %>
