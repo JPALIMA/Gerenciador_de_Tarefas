@@ -27,4 +27,16 @@
 
 <%= link_to "Nova Tarefa", new_task_path %>
 
+<div class="text-right">
+     <%= link_to 'Ordem padrão', tasks_path(sort: nil), class: 'btn btn-secondary'%>
+     <%= link_to 'Por data de vencimento', tasks_path(sort: 'due_data'), class 'btn btn-secondary' %>
+     <%= link_to 'Por Prioridade', tasks_path(sort: 'priority'), class: 'btn btn-secondary' %>
+</div>
+
+<table class='table'>
+     <!-- codigo de listagem de tarefas aqui -->
+</table>
+
+<%= link_to "nova tarefa", new_task_path %>
+
 
