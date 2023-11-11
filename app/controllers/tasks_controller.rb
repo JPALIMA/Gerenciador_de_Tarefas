@@ -1,13 +1,12 @@
 class TasksController < ApplicationController
      def index
-          @tasks = if params[:sort] == 'due_date'
-                         Task.order(due_date: :asc)
-                    elsif params[:sort] == 'priority'
-                         Task.order(priority: :desc)
+          @tasks = if params[:sort] == 'data de vencimento'
+                         Task.order(due_date: :asc).paginate(page: params[:page], per_page: 10)
+                    elsif params[:sort] == 'Prioridade'
+                         Task.order(priority: :desc).paginate(page: params[:page], per_page: 10)
                     else
-                         Task.all
+                         Task.paginate(page: params[:page], per_page: 10)
                     end
-     end
 
      before_action :authenticate_user!
 
@@ -21,16 +20,16 @@ class TasksController < ApplicationController
                flash[:success] = 'Tarefa criada com sucesso!'
                redirect_to tasks_path
           else
-               flash[:error] = 'Erro ao criar a tarefa.'
+               flash[:error] = 'Erro ao criar a tarefa'
                render 'new'
           end
      end
 
-     #Implementar as ações para editar, atualizar e excluir tarefas aqui
+     #implementar as ações para editar, atualizar e excluir tarefas aqui
 
      private
 
      def task_params
-          params.require(:task).permit(:title, :assignee, :due_date, :priority)
+          params.require(:task).permit(:title, :assignee, due_date, :priority)
      end
 end
