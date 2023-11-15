@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class TaskController < ApplicationController
      def index
           @tasks = if params[:sort] == 'data de vencimento'
                          Task.order(due_date: :asc).paginate(page: params[:page], per_page: 10)
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
      def create
           @task = Task.new(task_params)
           if @task.save
-               flash[:seccess] = 'Tarefa criada com sucesso!'
+               flash[:success] = 'Tarefa criada com sucesso!'
                redirect_to tasks_path
           else
                flash[:error] = 'Erro ao criar a tarefa'
@@ -33,4 +33,3 @@ class TasksController < ApplicationController
           params.require(:task).permit(:title, :assignee, :due_date, :priority, :category_ids => [], :tag_ids => [], :comments, :attachments => [])
      end
 end
-
