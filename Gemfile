@@ -7,6 +7,16 @@ gem 'devise'
 
 gem 'bootstrap'
 
+gem 'toastr-rails'
+
+gem 'will_paginate'
+
+gem 'sassc-rails', '~> 2.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0'
+end
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
