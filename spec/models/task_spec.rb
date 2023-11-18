@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  it "é válido com atributos válidos" do
+  let(:user) { User.create(name: 'joao', email: 'joao@exemplo.com', password: 'senha')}
+
+  it 'é válido com atributos válidos' do 
     task = Task.new(
-      title: "Exemple Task",
-      assignee: "John Doe",
-      due_date: Date.today + 7,
-      priority: "High"
+      title: 'Exemplo Task',
+      assignee: 'joao',
+      due_date: '25-11-2023',
+      priority: 'alta',
+      user: user # Associando a tarefa ao usuário
     )
     expect(task).to be_valid
   end
