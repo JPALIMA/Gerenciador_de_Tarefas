@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  let(:user) { User.create(name: 'joao', email: 'joao@exemplo.com', password: 'senha')}
+  let(:user) { User.create(username: 'joao', email: 'joao@exemplo.com', password: 'senha')}
 
   it 'é válido com atributos válidos' do
     task = Task.new(
