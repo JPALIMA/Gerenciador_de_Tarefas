@@ -28,3 +28,4 @@ RSpec.describe Task, type: :model do
     expect(task).to_not be_valid
   end
 end
+
