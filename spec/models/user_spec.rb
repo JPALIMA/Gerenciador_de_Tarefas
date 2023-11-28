@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create(email: 'joao@exemplo.com', password: 'senha') }
+  
 
   it 'é válido com atributos válidos' do
     user = User.new(
